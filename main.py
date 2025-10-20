@@ -13,6 +13,7 @@ from langchain.memory import ConversationBufferMemory
 # Load environment variables
 load_dotenv()
 
+
 class DocumentChatbot:
     def __init__(self, documents_dir="./documents", use_openai=True,
                  hf_embedding_model="sentence-transformers/all-mpnet-base-v2",
@@ -59,7 +60,7 @@ class DocumentChatbot:
         )
         splits = text_splitter.split_documents(documents)
 
-        # Create vector store with appropriate embeddings
+        # Create a vector store with appropriate embeddings
         if self.use_openai:
             print("Using OpenAI for embeddings...")
             embeddings = OpenAIEmbeddings()
@@ -119,7 +120,7 @@ class DocumentChatbot:
 
     def ask(self, question):
         """
-        Ask a question to the chatbot.
+        Ask a question the chatbot.
 
         Args:
             question (str): The question to ask
@@ -132,6 +133,7 @@ class DocumentChatbot:
 
         response = self.conversation_chain({"question": question})
         return response["answer"]
+
 
 def main():
     print("Initializing Document Chatbot...")
@@ -146,6 +148,7 @@ def main():
 
         answer = chatbot.ask(question)
         print(f"\nChatbot: {answer}")
+
 
 if __name__ == "__main__":
     main()

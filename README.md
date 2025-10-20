@@ -5,6 +5,7 @@ A "smart" chatbot that can answer questions about your documents using Retrieval
 ## Overview
 
 This project implements a chatbot that can:
+
 - Process your documents (PDFs, text files)
 - Answer questions about their content
 - Maintain context in a conversation
@@ -48,16 +49,18 @@ This approach allows the chatbot to provide accurate, contextual answers based o
    Then edit the `.env` file to add your actual OpenAI API key.
 
 4. Add your documents to the `documents` directory (will be created on first run):
-   - Supported formats: PDF (.pdf), Text (.txt)
+    - Supported formats: PDF (.pdf), Text (.txt)
 
 ## Usage
 
 Run the chatbot:
+
 ```
 python main.py
 ```
 
 The first time you run it, the system will:
+
 1. Create a `documents` directory if it doesn't exist
 2. Process any documents in that directory
 3. Create embeddings and store them in a vector database
@@ -65,6 +68,7 @@ The first time you run it, the system will:
 You can then ask questions about your documents through the command-line interface.
 
 Example conversation:
+
 ```
 You: What is the main topic of my resume?
 Chatbot: Based on your resume, the main topic appears to be your experience as a software engineer with expertise in...
@@ -91,9 +95,9 @@ The system follows these steps:
 3. **Embedding Creation**: Converts text chunks into vector embeddings using OpenAI
 4. **Vector Storage**: Stores embeddings in ChromaDB for efficient retrieval
 5. **Question Answering**: Uses LangChain's ConversationalRetrievalChain to:
-   - Find relevant document chunks based on the question
-   - Generate an answer using the retrieved context
-   - Maintain conversation history for follow-up questions
+    - Find relevant document chunks based on the question
+    - Generate an answer using the retrieved context
+    - Maintain conversation history for follow-up questions
 
 ## License
 
